@@ -1,4 +1,29 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Devin Emmanuel Morgan - Portfolio Website
+
+A modern, interactive portfolio website showcasing my skills, projects, and experience as a software developer, game developer, and full-stack engineer.
+
+## Overview
+
+This portfolio website features:
+
+- Interactive UI animations and transitions using Framer Motion
+- Responsive design for all devices and screen sizes
+- Showcase of major projects including Genesis AI and Plasma Puck Unlimited
+- Detailed skills and experience sections
+- Professional references and contact information
+
+## Tech Stack
+
+- [Next.js](https://nextjs.org) - React framework for production
+- [Tailwind CSS](https://tailwindcss.com) - Utility-first CSS framework
+- [Framer Motion](https://www.framer.com/motion/) - Animation library
+- [React Icons](https://react-icons.github.io/react-icons/) - Icon library
+
+## Featured Projects
+
+- **Genesis AI** - Advanced AI chatbot app utilizing GPT-4o, Gemini 2.0, DeepSeek, and Claude
+- **Plasma Puck Unlimited** - Fast-paced mobile air hockey game with over 20,000 downloads
+- **Tello Drone Coding Lab** - Educational software for teaching programming through drone control
 
 ## Getting Started
 
@@ -14,23 +39,24 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) with your browser to view the portfolio.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Contact Information
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Feel free to reach out with any questions or opportunities:
 
-## Learn More
+- Email: morgandevin1029@gmail.com
+- Phone: 757-339-2700
+- Location: Hampton, Virginia, United States
 
-To learn more about Next.js, take a look at the following resources:
+## Deployment
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This site is built to be deployed on Vercel or any static site hosting platform.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+npm run build
+```
 
-## Deploy on Vercel
+## License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+All rights reserved © Devin Emmanuel Morgan

@@ -102,7 +102,7 @@ export default function Home() {
         style={{
           backgroundImage: "url(/Background.png)",
           backgroundSize: "cover",
-          backgroundPosition: "center 60%",
+          backgroundPosition: "center 20%",
           position: "relative",
         }}
       >
