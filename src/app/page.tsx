@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   FaGithub,
   FaLinkedin,
@@ -19,6 +19,10 @@ import {
   FaArrowUp,
   FaFileDownload,
   FaQuoteLeft,
+  FaGamepad,
+  FaPuzzlePiece,
+  FaBolt,
+  FaLayerGroup,
 } from "react-icons/fa";
 import {
   SiElectron,
@@ -28,6 +32,7 @@ import {
   SiOpenai,
 } from "react-icons/si";
 import { TbBrandCSharp } from "react-icons/tb";
+import { CheckIcon } from "@heroicons/react/24/outline";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -62,6 +67,91 @@ const staggerContainer = {
       duration: 0.5,
     },
   },
+};
+
+// Custom hook for tilt effect
+const useTilt = (
+  ref: React.RefObject<HTMLDivElement>,
+  maxTilt: number = 15,
+  isGridItem: boolean = false,
+  isReference: boolean = false
+) => {
+  useEffect(() => {
+    const elem = ref.current;
+    if (!elem) return;
+
+    const handleMouseMove = (e: MouseEvent) => {
+      const { left, top, width, height } = elem.getBoundingClientRect();
+      const x = e.clientX - left;
+      const y = e.clientY - top;
+      const centerX = width / 2;
+      const centerY = height / 2;
+
+      let tiltX, tiltY;
+
+      if (isGridItem) {
+        // Grid items: Reverse Y tilt only, less noticeable
+        tiltX = -((y - centerY) / centerY) * maxTilt;
+        tiltY = ((x - centerX) / centerX) * maxTilt; // Reversed Y tilt
+      } else if (isReference) {
+        // References: Reverse X tilt only
+        tiltX = -((y - centerY) / centerY) * maxTilt; // Reversed X tilt
+        tiltY = -((centerX - x) / centerX) * maxTilt;
+      } else {
+        // Normal behavior
+        tiltX = -((y - centerY) / centerY) * maxTilt;
+        tiltY = ((centerX - x) / centerX) * maxTilt;
+      }
+
+      elem.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale(1.05)`;
+    };
+
+    const handleMouseLeave = () => {
+      elem.style.transform =
+        "perspective(1000px) rotateX(0) rotateY(0) scale(1)";
+    };
+
+    const handleMouseEnter = () => {
+      elem.style.transition = "transform 0.1s ease-out";
+    };
+
+    elem.addEventListener("mousemove", handleMouseMove as EventListener);
+    elem.addEventListener("mouseleave", handleMouseLeave);
+    elem.addEventListener("mouseenter", handleMouseEnter);
+
+    return () => {
+      if (elem) {
+        elem.removeEventListener("mousemove", handleMouseMove as EventListener);
+        elem.removeEventListener("mouseleave", handleMouseLeave);
+        elem.removeEventListener("mouseenter", handleMouseEnter);
+      }
+    };
+  }, [ref, maxTilt, isGridItem, isReference]);
+};
+
+// TiltCard component for feature items
+interface TiltCardProps {
+  children: React.ReactNode;
+  className?: string;
+  gridItem?: boolean;
+  isReference?: boolean;
+}
+
+const TiltCard: React.FC<TiltCardProps> = ({
+  children,
+  className = "",
+  gridItem = false,
+  isReference = false,
+}) => {
+  const ref = useRef<HTMLDivElement>(null);
+  // Reduced tilt for grid items, pass type information to useTilt
+  useTilt(ref, gridItem ? 20 : 15, gridItem, isReference);
+
+  return (
+    <div ref={ref} className={className}>
+      {children}
+    </div>
+  );
 };
 
 export default function Home() {
@@ -427,7 +517,9 @@ export default function Home() {
             <h2 className="text-3xl md:text-4xl font-bold mb-12">Education</h2>
             <div className="space-y-8 max-w-3xl mx-auto">
               <motion.div variants={fadeInUp} className="card text-left">
-                <h3 className="text-xl font-semibold">Computer Science</h3>
+                <h3 className="text-xl font-semibold">
+                  Bachelor of Science in Computer Science
+                </h3>
                 <p className="text-primary-600">Old Dominion University</p>
                 <p className="text-secondary-500">Norfolk, VA</p>
                 <p className="text-secondary-500 text-sm mb-4">
@@ -449,6 +541,9 @@ export default function Home() {
                 <h3 className="text-xl font-semibold">Certifications</h3>
                 <p className="text-secondary-600 mt-2">
                   Drone Flying Certificate - Completed July 2024
+                </p>
+                <p className="text-secondary-600 mt-2">
+                  AWS Certified Cloud Practitioner - April 2025
                 </p>
               </motion.div>
             </div>
@@ -553,30 +648,42 @@ export default function Home() {
                     </div>
                     <div className="md:w-1/2 flex items-center justify-center mt-6 md:mt-0">
                       <div className="grid grid-cols-2 gap-4 w-full max-w-md">
-                        <div className="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 flex flex-col items-center hover:bg-opacity-20 transition-all">
+                        <TiltCard
+                          gridItem={true}
+                          className="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 flex flex-col items-center hover:bg-opacity-20"
+                        >
                           <FaCode className="text-4xl text-white mb-2" />
                           <p className="text-sm text-center text-white">
                             GPT-4o & Claude
                           </p>
-                        </div>
-                        <div className="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 flex flex-col items-center hover:bg-opacity-20 transition-all">
+                        </TiltCard>
+                        <TiltCard
+                          gridItem={true}
+                          className="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 flex flex-col items-center hover:bg-opacity-20"
+                        >
                           <SiOpenai className="text-4xl text-white mb-2" />
                           <p className="text-sm text-center text-white">
                             Image Generation
                           </p>
-                        </div>
-                        <div className="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 flex flex-col items-center hover:bg-opacity-20 transition-all">
+                        </TiltCard>
+                        <TiltCard
+                          gridItem={true}
+                          className="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 flex flex-col items-center hover:bg-opacity-20"
+                        >
                           <SiFirebase className="text-4xl text-white mb-2" />
                           <p className="text-sm text-center text-white">
                             Web Search
                           </p>
-                        </div>
-                        <div className="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 flex flex-col items-center hover:bg-opacity-20 transition-all">
+                        </TiltCard>
+                        <TiltCard
+                          gridItem={true}
+                          className="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 flex flex-col items-center hover:bg-opacity-20"
+                        >
                           <SiSupabase className="text-4xl text-white mb-2" />
                           <p className="text-sm text-center text-white">
                             File Analysis
                           </p>
-                        </div>
+                        </TiltCard>
                       </div>
                     </div>
                   </div>
@@ -600,7 +707,7 @@ export default function Home() {
                     Plasma Puck Unlimited
                   </h3>
                   <div className="flex flex-col md:flex-row gap-8">
-                    <div className="md:w-2/3">
+                    <div className="md:w-1/2">
                       <p className="text-gray-200 text-left mb-6">
                         A fast-paced mobile air hockey game with over 20,000
                         downloads, recognized and featured twice by the iOS App
@@ -652,6 +759,46 @@ export default function Home() {
                         >
                           <FaGooglePlay className="mr-2" /> Google Play
                         </a>
+                      </div>
+                    </div>
+                    <div className="md:w-1/2 flex items-center justify-center mt-6 md:mt-0">
+                      <div className="grid grid-cols-2 gap-4 w-full max-w-md">
+                        <TiltCard
+                          gridItem={true}
+                          className="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 flex flex-col items-center hover:bg-opacity-20"
+                        >
+                          <FaGamepad className="text-4xl text-white mb-2" />
+                          <p className="text-sm text-center text-white">
+                            7 Unique Game Modes
+                          </p>
+                        </TiltCard>
+                        <TiltCard
+                          gridItem={true}
+                          className="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 flex flex-col items-center hover:bg-opacity-20"
+                        >
+                          <FaPuzzlePiece className="text-4xl text-white mb-2" />
+                          <p className="text-sm text-center text-white">
+                            Level Editor
+                          </p>
+                        </TiltCard>
+                        <TiltCard
+                          gridItem={true}
+                          className="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 flex flex-col items-center hover:bg-opacity-20"
+                        >
+                          <FaBolt className="text-4xl text-white mb-2" />
+                          <p className="text-sm text-center text-white">
+                            12 Wild Power-ups
+                          </p>
+                        </TiltCard>
+                        <TiltCard
+                          gridItem={true}
+                          className="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 flex flex-col items-center hover:bg-opacity-20"
+                        >
+                          <FaLayerGroup className="text-4xl text-white mb-2" />
+                          <p className="text-sm text-center text-white">
+                            400+ Premade Levels
+                          </p>
+                        </TiltCard>
                       </div>
                     </div>
                   </div>
@@ -777,7 +924,7 @@ export default function Home() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* Reference 1 */}
-              <motion.div variants={fadeIn} className="card p-8 relative">
+              <TiltCard className="card p-8 relative" isReference={true}>
                 <FaQuoteLeft className="text-4xl text-primary-100 absolute top-6 left-6" />
                 <div className="text-left relative z-10">
                   <h3 className="text-xl font-semibold text-primary-600 mb-2">
@@ -798,10 +945,10 @@ export default function Home() {
                     </a>
                   </p>
                 </div>
-              </motion.div>
+              </TiltCard>
 
               {/* Reference 2 */}
-              <motion.div variants={fadeIn} className="card p-8 relative">
+              <TiltCard className="card p-8 relative" isReference={true}>
                 <FaQuoteLeft className="text-4xl text-primary-100 absolute top-6 left-6" />
                 <div className="text-left relative z-10">
                   <h3 className="text-xl font-semibold text-primary-600 mb-2">
@@ -823,7 +970,7 @@ export default function Home() {
                     </a>
                   </p>
                 </div>
-              </motion.div>
+              </TiltCard>
             </div>
           </motion.div>
         </div>
