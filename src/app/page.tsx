@@ -904,6 +904,42 @@ export default function Home() {
                 </div>
               </div>
             </motion.div>
+
+            {/* Drone Demo Video */}
+            <motion.div variants={fadeInUp} className="mt-8 mb-20">
+              <div className="card bg-primary-50 shadow-xl overflow-hidden border-2 border-primary-200">
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold text-primary-600 mb-4">
+                    Demo: Tello Drone Coding Lab in Action
+                  </h3>
+                  <div className="flex flex-col items-center justify-center space-y-4 py-6">
+                    <p className="text-lg text-secondary-700 mb-4">
+                      Watch the Coding Lab Demo video to see the application in
+                      action
+                    </p>
+                    <div className="w-full max-w-4xl mx-auto">
+                      <div
+                        className="relative"
+                        style={{ paddingTop: "56.25%" }}
+                      >
+                        <video
+                          src="/CodingLabDemo.mp4"
+                          controls
+                          preload="metadata"
+                          className="absolute top-0 left-0 w-full h-full rounded-lg shadow-lg"
+                        >
+                          Your browser does not support the video tag.
+                        </video>
+                      </div>
+                    </div>
+                  </div>
+                  <p className="text-sm text-secondary-600 mt-4 text-center">
+                    Demonstration of the Tello Drone Coding Lab application
+                    being used to program and control drones
+                  </p>
+                </div>
+              </div>
+            </motion.div>
           </motion.div>
         </div>
       </section>
