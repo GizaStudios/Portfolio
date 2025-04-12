@@ -472,7 +472,7 @@ export default function Home() {
                   title: "Data Entry Specialist and Program Developer",
                   company: "Virginia Space Grant Consortium",
                   location: "Hampton, VA",
-                  period: "June 2024 - March 2025",
+                  period: "June 2024 - Present",
                   description:
                     "Maintained and updated the internship database to ensure current information. Developed software applications for controlling small drones and providing high school students with foundational programming education.",
                 },
@@ -480,9 +480,18 @@ export default function Home() {
                   title: "Technology Analyst",
                   company: "ODU Procurement Services",
                   location: "Norfolk, VA",
-                  period: "September 2023 - May 2024",
+                  period: "September 2023 - Present",
                   description:
                     "Evaluated surplus hardware to determine quality and potential for resale. Assessed diverse equipment including CPUs, laptops, projectors, and other technology. Explored options for refurbishing or recovering hardware to maximize value.",
+                },
+                {
+                  title: "VICEROY Cybersecurity Research Program",
+                  company:
+                    "Department of Defense (DoD) Funded | Old Dominion University",
+                  location: "Norfolk, VA",
+                  period: "November 2024 - Present",
+                  description:
+                    "Selected for prestigious DoD-funded research on GPS spoofing detection using transformer-based AI models. Applied machine learning techniques to real-world cybersecurity challenges in a collaborative research setting. Designed and presented a research poster showcasing project outcomes to an academic audience.",
                 },
               ].map((job, index) => (
                 <motion.div
