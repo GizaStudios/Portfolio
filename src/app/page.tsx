@@ -927,24 +927,41 @@ export default function Home() {
                       action
                     </p>
                     <div className="w-full max-w-4xl mx-auto">
-                      <div
-                        className="relative"
-                        style={{ paddingTop: "56.25%" }}
-                      >
-                        <video
-                          src="/CodingLabDemo.mp4"
-                          controls
-                          preload="metadata"
-                          className="absolute top-0 left-0 w-full h-full rounded-lg shadow-lg"
+                      <div className="flex justify-center">
+                        <a
+                          href="/CodingLabDemo.mp4"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="btn btn-primary text-lg px-6 py-3 flex items-center gap-2 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
                         >
-                          Your browser does not support the video tag.
-                        </video>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-6 w-6"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
+                            />
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                            />
+                          </svg>
+                          Watch Demo Video
+                        </a>
                       </div>
                     </div>
                   </div>
                   <p className="text-sm text-secondary-600 mt-4 text-center">
-                    Demonstration of the Tello Drone Coding Lab application
-                    being used to program and control drones
+                    Open the demo video to watch the Tello Drone Coding Lab
+                    application being used to program and control drones
                   </p>
                 </div>
               </div>
