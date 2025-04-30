@@ -637,6 +637,14 @@ export default function Home() {
                       </div>
                       <div className="flex flex-wrap gap-3 justify-start">
                         <a
+                          href="https://www.genesisai.chat/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="btn bg-white bg-opacity-20 hover:bg-opacity-30 text-white"
+                        >
+                          <FaCode className="mr-2" /> Landing Page
+                        </a>
+                        <a
                           href="https://apps.apple.com/us/app/id6670447214"
                           target="_blank"
                           rel="noopener noreferrer"
