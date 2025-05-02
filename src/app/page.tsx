@@ -161,6 +161,7 @@ export default function Home() {
   });
 
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [showVideo, setShowVideo] = useState(false);
 
   // Handle scroll to top visibility
   useEffect(() => {
@@ -182,6 +183,11 @@ export default function Home() {
       top: 0,
       behavior: "smooth",
     });
+  };
+
+  // Toggle video visibility
+  const toggleVideo = () => {
+    setShowVideo(!showVideo);
   };
 
   return (
@@ -235,12 +241,6 @@ export default function Home() {
               >
                 <FaFileDownload className="mr-2" /> Download Resume
               </a>
-              <a
-                href="tel:7573392700"
-                className="btn btn-secondary hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
-              >
-                <FaMobile className="mr-2" /> 757-339-2700
-              </a>
             </motion.div>
             <div className="flex justify-center mt-4">
               <p className="flex items-center text-secondary-600">
@@ -282,8 +282,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About Section */}
-      <section className="section bg-white">
+      {/* About Section - Shorter, more concise */}
+      <section className="section bg-white py-12">
         <div className="container">
           <motion.div
             ref={ref}
@@ -293,273 +293,19 @@ export default function Home() {
             className="max-w-3xl mx-auto text-center"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-6">About Me</h2>
-            <p className="text-lg text-secondary-600 mb-8">
-              I'm a passionate software developer specializing in application
-              and game development. Currently pursuing my Computer Science
-              degree at Old Dominion University, I combine technical expertise
-              with creativity to build intuitive, impactful digital experiences.
-              With skills spanning mobile development, game design, and
-              full-stack web applications, I enjoy solving complex problems
-              through innovative solutions.
+            <p className="text-lg text-secondary-600">
+              Software developer specializing in application and game
+              development, currently pursuing a Computer Science degree at Old
+              Dominion University. I combine technical expertise with creativity
+              to build intuitive, impactful digital experiences. My portfolio
+              showcases projects across mobile, game, and full-stack web
+              development.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Skills Section */}
-      <section className="section bg-secondary-50">
-        <div className="container">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={staggerContainer}
-            className="text-center"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-10">
-              Skills & Technologies
-            </h2>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 max-w-5xl mx-auto">
-              {/* Software Development */}
-              <motion.div variants={fadeInUp} className="card">
-                <h3 className="text-xl font-bold text-primary-600 mb-4">
-                  Software Development
-                </h3>
-                <div className="grid grid-cols-2 gap-3">
-                  <div className="flex items-center">
-                    <FaPython className="text-xl mr-2 text-primary-500" />
-                    <span>Python</span>
-                  </div>
-                  <div className="flex items-center">
-                    <FaJs className="text-xl mr-2 text-primary-500" />
-                    <span>JavaScript</span>
-                  </div>
-                  <div className="flex items-center">
-                    <FaHtml5 className="text-xl mr-2 text-primary-500" />
-                    <span>HTML</span>
-                  </div>
-                  <div className="flex items-center">
-                    <TbBrandCSharp className="text-xl mr-2 text-primary-500" />
-                    <span>C#</span>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Game Development */}
-              <motion.div variants={fadeInUp} className="card">
-                <h3 className="text-xl font-bold text-primary-600 mb-4">
-                  Game Development
-                </h3>
-                <div className="grid grid-cols-1 gap-3">
-                  <div className="flex items-center">
-                    <FaUnity className="text-xl mr-2 text-primary-500" />
-                    <span>Unity Game Engine</span>
-                  </div>
-                  <div className="flex items-center">
-                    <FaCode className="text-xl mr-2 text-primary-500" />
-                    <span>Performance Optimization</span>
-                  </div>
-                  <div className="flex items-center">
-                    <FaCode className="text-xl mr-2 text-primary-500" />
-                    <span>User Experience Design</span>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* App Development */}
-              <motion.div variants={fadeInUp} className="card">
-                <h3 className="text-xl font-bold text-primary-600 mb-4">
-                  App Development
-                </h3>
-                <div className="grid grid-cols-1 gap-3">
-                  <div className="flex items-center">
-                    <SiFlutter className="text-xl mr-2 text-primary-500" />
-                    <span>FlutterFlow</span>
-                  </div>
-                  <div className="flex items-center">
-                    <SiElectron className="text-xl mr-2 text-primary-500" />
-                    <span>Electron.js</span>
-                  </div>
-                  <div className="flex items-center">
-                    <FaCode className="text-xl mr-2 text-primary-500" />
-                    <span>Cross-Platform Development</span>
-                  </div>
-                  <div className="flex items-center">
-                    <FaCode className="text-xl mr-2 text-primary-500" />
-                    <span>UI/UX Design</span>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Full-Stack Development */}
-              <motion.div variants={fadeInUp} className="card">
-                <h3 className="text-xl font-bold text-primary-600 mb-4">
-                  Full-Stack Development
-                </h3>
-                <div className="grid grid-cols-2 gap-3">
-                  <div className="flex items-center">
-                    <SiFirebase className="text-xl mr-2 text-primary-500" />
-                    <span>Firebase</span>
-                  </div>
-                  <div className="flex items-center">
-                    <SiSupabase className="text-xl mr-2 text-primary-500" />
-                    <span>Supabase</span>
-                  </div>
-                  <div className="flex items-center">
-                    <FaCode className="text-xl mr-2 text-primary-500" />
-                    <span>Frontend</span>
-                  </div>
-                  <div className="flex items-center">
-                    <FaCode className="text-xl mr-2 text-primary-500" />
-                    <span>Backend</span>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Specialized Skills */}
-              <motion.div variants={fadeInUp} className="card md:col-span-2">
-                <h3 className="text-xl font-bold text-primary-600 mb-4">
-                  Specialized Skills
-                </h3>
-                <div className="grid grid-cols-3 gap-3">
-                  <div className="flex items-center">
-                    <SiOpenai className="text-xl mr-2 text-primary-500" />
-                    <span>OpenAI API Integration</span>
-                  </div>
-                  <div className="flex items-center">
-                    <FaCode className="text-xl mr-2 text-primary-500" />
-                    <span>Drone Programming</span>
-                  </div>
-                  <div className="flex items-center">
-                    <FaCode className="text-xl mr-2 text-primary-500" />
-                    <span>API Integration</span>
-                  </div>
-                  <div className="flex items-center">
-                    <FaCode className="text-xl mr-2 text-primary-500" />
-                    <span>Problem Solving</span>
-                  </div>
-                  <div className="flex items-center">
-                    <FaCode className="text-xl mr-2 text-primary-500" />
-                    <span>Algorithmic Development</span>
-                  </div>
-                  <div className="flex items-center">
-                    <FaCode className="text-xl mr-2 text-primary-500" />
-                    <span>Educational Software</span>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Experience Section */}
-      <section className="section bg-white">
-        <div className="container">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={staggerContainer}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-12">Experience</h2>
-            <div className="space-y-8">
-              {[
-                {
-                  title: "Data Entry Specialist and Program Developer",
-                  company: "Virginia Space Grant Consortium",
-                  location: "Hampton, VA",
-                  period: "June 2024 - Present",
-                  description:
-                    "Maintained and updated the internship database to ensure current information. Developed software applications for controlling small drones and providing high school students with foundational programming education.",
-                },
-                {
-                  title: "Technology Analyst",
-                  company: "ODU Procurement Services",
-                  location: "Norfolk, VA",
-                  period: "September 2023 - Present",
-                  description:
-                    "Evaluated surplus hardware to determine quality and potential for resale. Assessed diverse equipment including CPUs, laptops, projectors, and other technology. Explored options for refurbishing or recovering hardware to maximize value.",
-                },
-                {
-                  title: "VICEROY Cybersecurity Research Program",
-                  company:
-                    "Department of Defense (DoD) Funded | Old Dominion University",
-                  location: "Norfolk, VA",
-                  period: "November 2024 - Present",
-                  description:
-                    "Selected for prestigious DoD-funded research on GPS spoofing detection using transformer-based AI models. Applied machine learning techniques to real-world cybersecurity challenges in a collaborative research setting. Designed and presented a research poster showcasing project outcomes to an academic audience.",
-                },
-              ].map((job, index) => (
-                <motion.div
-                  key={index}
-                  variants={fadeInUp}
-                  className="card text-left"
-                >
-                  <h3 className="text-xl font-semibold">{job.title}</h3>
-                  <p className="text-primary-600">{job.company}</p>
-                  <p className="text-secondary-500">{job.location}</p>
-                  <p className="text-secondary-500 text-sm mb-4">
-                    {job.period}
-                  </p>
-                  <p className="text-secondary-600">{job.description}</p>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Education Section */}
-      <section className="section bg-secondary-50">
-        <div className="container">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={staggerContainer}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-12">Education</h2>
-            <div className="space-y-8 max-w-3xl mx-auto">
-              <motion.div variants={fadeInUp} className="card text-left">
-                <h3 className="text-xl font-semibold">
-                  Bachelor of Science in Computer Science
-                </h3>
-                <p className="text-primary-600">Old Dominion University</p>
-                <p className="text-secondary-500">Norfolk, VA</p>
-                <p className="text-secondary-500 text-sm mb-4">
-                  Expected Graduation: May 2025 | GPA: 3.33/4.0
-                </p>
-                <p className="text-secondary-600">
-                  Credits Earned: 128 Semester Hours
-                </p>
-              </motion.div>
-              <motion.div variants={fadeInUp} className="card text-left">
-                <h3 className="text-xl font-semibold">High School Diploma</h3>
-                <p className="text-primary-600">Phoebus High School</p>
-                <p className="text-secondary-500">Hampton, VA</p>
-                <p className="text-secondary-500 text-sm mb-4">
-                  Graduated: May 2019
-                </p>
-              </motion.div>
-              <motion.div variants={fadeInUp} className="card text-left">
-                <h3 className="text-xl font-semibold">Certifications</h3>
-                <p className="text-secondary-600 mt-2">
-                  Drone Flying Certificate - Completed July 2024
-                </p>
-                <p className="text-secondary-600 mt-2">
-                  AWS Certified Cloud Practitioner - April 2025
-                </p>
-              </motion.div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Projects Section */}
+      {/* Projects Section - Now prioritized */}
       <section className="section bg-white">
         <div className="container">
           <motion.div
@@ -879,20 +625,6 @@ export default function Home() {
                           </li>
                         </ul>
                       </div>
-                      <div className="text-left mb-6">
-                        <h4 className="font-semibold text-primary-600 mb-2">
-                          Educational Benefits:
-                        </h4>
-                        <ul className="list-disc list-inside space-y-1 text-secondary-600">
-                          <li>Hands-on approach to coding and robotics</li>
-                          <li>Step-by-step progression of concepts</li>
-                          <li>Real-time feedback and visualizations</li>
-                          <li>Comprehensive development environment</li>
-                          <li>
-                            Engaging entry point to programming for students
-                          </li>
-                        </ul>
-                      </div>
                       <div className="flex flex-wrap gap-2 mb-6 justify-start">
                         {[
                           "Python",
@@ -908,7 +640,7 @@ export default function Home() {
                           </span>
                         ))}
                       </div>
-                      <div className="flex flex-wrap gap-3 justify-start">
+                      <div className="flex flex-wrap gap-3 justify-start mb-6">
                         <a
                           href="https://github.com/GizaStudios/DroneCodingLabs"
                           target="_blank"
@@ -917,6 +649,33 @@ export default function Home() {
                         >
                           <FaGithub className="mr-2" /> View on GitHub
                         </a>
+
+                        <button
+                          onClick={toggleVideo}
+                          className="btn bg-primary-600 hover:bg-primary-700 text-white flex items-center gap-2"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-5 w-5"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
+                            />
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                            />
+                          </svg>
+                          Watch Demo
+                        </button>
                       </div>
                     </div>
                     <div className="md:w-1/2">
@@ -931,156 +690,289 @@ export default function Home() {
               </div>
             </motion.div>
 
-            {/* Drone Demo Video */}
-            <motion.div variants={fadeInUp} className="mt-8 mb-20">
-              <div className="card bg-primary-50 shadow-xl overflow-hidden border-2 border-primary-200">
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-primary-600 mb-4">
-                    Demo: Tello Drone Coding Lab in Action
-                  </h3>
-                  <div className="flex flex-col items-center justify-center space-y-4 py-6">
-                    <p className="text-lg text-secondary-700 mb-4">
-                      Watch the Coding Lab Demo video to see the application in
-                      action
-                    </p>
-                    <div className="w-full max-w-4xl mx-auto">
-                      <div
-                        className="relative"
-                        style={{ paddingTop: "56.25%" }}
+            {/* Video Modal */}
+            {showVideo && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{
+                  opacity: 1,
+                  transition: {
+                    duration: 0.4,
+                    ease: "easeInOut",
+                  },
+                }}
+                exit={{
+                  opacity: 0,
+                  transition: {
+                    duration: 0.3,
+                    ease: "easeInOut",
+                  },
+                }}
+                className="fixed inset-0 bg-black bg-opacity-60 z-50 flex items-center justify-center p-4"
+                onClick={toggleVideo}
+              >
+                <motion.div
+                  className="bg-white rounded-lg overflow-hidden max-w-4xl w-full shadow-2xl"
+                  onClick={(e) => e.stopPropagation()} // Prevents closing when clicking inside the modal
+                  initial={{ scale: 0.9, y: 20, opacity: 0 }}
+                  animate={{
+                    scale: 1,
+                    y: 0,
+                    opacity: 1,
+                    transition: {
+                      type: "spring",
+                      stiffness: 300,
+                      damping: 25,
+                      delay: 0.1,
+                    },
+                  }}
+                  exit={{
+                    scale: 0.9,
+                    y: 20,
+                    opacity: 0,
+                    transition: { duration: 0.2 },
+                  }}
+                >
+                  <div className="p-4 bg-primary-50 flex justify-between items-center border-b">
+                    <h3 className="text-xl font-semibold text-primary-600">
+                      Demo: Tello Drone Coding Lab
+                    </h3>
+                    <button
+                      onClick={toggleVideo}
+                      className="text-gray-500 hover:text-gray-700"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-6 w-6"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
                       >
-                        <video
-                          src="/CodingLabDemo.mp4"
-                          controls
-                          preload="metadata"
-                          className="absolute top-0 left-0 w-full h-full rounded-lg shadow-lg"
-                        >
-                          Your browser does not support the video tag.
-                        </video>
-                      </div>
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M6 18L18 6M6 6l12 12"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                  <div className="p-6">
+                    <div className="relative" style={{ paddingTop: "56.25%" }}>
+                      <video
+                        src="/CodingLabDemo.mp4"
+                        controls
+                        autoPlay
+                        preload="metadata"
+                        className="absolute top-0 left-0 w-full h-full rounded-lg"
+                      >
+                        Your browser does not support the video tag.
+                      </video>
                     </div>
                   </div>
-                  <p className="text-sm text-secondary-600 mt-4 text-center">
-                    Demonstration of the Tello Drone Coding Lab application
-                    being used to program and control drones
-                  </p>
-                </div>
-              </div>
-            </motion.div>
+                </motion.div>
+              </motion.div>
+            )}
           </motion.div>
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="section bg-white">
-        <div className="container">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeInUp}
-            className="max-w-4xl mx-auto text-center"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-10">
-              Professional References
-            </h2>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {/* Reference 1 */}
-              <TiltCard className="card p-8 relative" isReference={true}>
-                <FaQuoteLeft className="text-4xl text-primary-100 absolute top-6 left-6" />
-                <div className="text-left relative z-10">
-                  <h3 className="text-xl font-semibold text-primary-600 mb-2">
-                    John Eagle
-                  </h3>
-                  <p className="text-secondary-500 mb-4">
-                    Director of Information Technology
-                  </p>
-                  <p className="text-secondary-500 mb-1">
-                    Hampton City Schools
-                  </p>
-                  <p className="text-secondary-600 mb-4">
-                    <a
-                      href="mailto:jeagle@hampton.k12.va.us"
-                      className="text-primary-500 hover:underline"
-                    >
-                      jeagle@hampton.k12.va.us
-                    </a>
-                  </p>
-                </div>
-              </TiltCard>
-
-              {/* Reference 2 */}
-              <TiltCard className="card p-8 relative" isReference={true}>
-                <FaQuoteLeft className="text-4xl text-primary-100 absolute top-6 left-6" />
-                <div className="text-left relative z-10">
-                  <h3 className="text-xl font-semibold text-primary-600 mb-2">
-                    Alan Scott Bellows
-                  </h3>
-                  <p className="text-secondary-500 mb-4">
-                    Technology Programs Coordinator
-                  </p>
-                  <p className="text-secondary-500 mb-1">
-                    Virginia Space Grant Consortium
-                  </p>
-                  <p className="text-secondary-600 mb-2">
-                    <span className="block">757-766-5210</span>
-                    <a
-                      href="mailto:abellows@odu.edu"
-                      className="text-primary-500 hover:underline"
-                    >
-                      abellows@odu.edu
-                    </a>
-                  </p>
-                </div>
-              </TiltCard>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Additional Activities Section */}
+      {/* Skills Section - Condensed */}
       <section className="section bg-secondary-50">
         <div className="container">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            variants={fadeInUp}
-            className="max-w-4xl mx-auto text-center"
+            variants={staggerContainer}
+            className="text-center"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Community Involvement
+            <h2 className="text-3xl md:text-4xl font-bold mb-10">
+              Technical Skills
             </h2>
-            <div className="card p-0 overflow-hidden">
-              <div className="flex flex-col md:flex-row">
-                <div className="md:w-1/2 p-8 flex flex-col justify-center">
-                  <h3 className="text-xl font-semibold text-primary-600 mb-4">
-                    Virginia Peninsula Foodbank
-                  </h3>
-                  <p className="text-lg text-secondary-600 mb-4">
-                    Dedicated volunteer with{" "}
-                    <span className="font-semibold">over 80 hours</span>{" "}
-                    contributed to the Virginia Peninsula Foodbank, supporting
-                    local initiatives to combat food insecurity and contributing
-                    to community well-being.
-                  </p>
-                  <div className="flex justify-center mb-4">
-                    <a
-                      href="https://hrfoodbank.org/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn btn-primary"
-                    >
-                      Visit Foodbank Website
-                    </a>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 max-w-5xl mx-auto">
+              {/* Software Development */}
+              <motion.div variants={fadeInUp} className="card">
+                <h3 className="text-xl font-bold text-primary-600 mb-4">
+                  Software Development
+                </h3>
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="flex items-center">
+                    <FaPython className="text-xl mr-2 text-primary-500" />
+                    <span>Python</span>
+                  </div>
+                  <div className="flex items-center">
+                    <FaJs className="text-xl mr-2 text-primary-500" />
+                    <span>JavaScript</span>
+                  </div>
+                  <div className="flex items-center">
+                    <FaHtml5 className="text-xl mr-2 text-primary-500" />
+                    <span>HTML</span>
+                  </div>
+                  <div className="flex items-center">
+                    <TbBrandCSharp className="text-xl mr-2 text-primary-500" />
+                    <span>C#</span>
                   </div>
                 </div>
-                <div className="md:w-1/2 flex items-center justify-center p-4">
-                  <img
-                    src="/foodbank.webp"
-                    alt="Virginia Peninsula Foodbank"
-                    className="max-w-full max-h-full object-contain"
-                  />
+              </motion.div>
+
+              {/* Game Development */}
+              <motion.div variants={fadeInUp} className="card">
+                <h3 className="text-xl font-bold text-primary-600 mb-4">
+                  Game Development
+                </h3>
+                <div className="grid grid-cols-1 gap-3">
+                  <div className="flex items-center">
+                    <FaUnity className="text-xl mr-2 text-primary-500" />
+                    <span>Unity Game Engine</span>
+                  </div>
+                  <div className="flex items-center">
+                    <FaCode className="text-xl mr-2 text-primary-500" />
+                    <span>Performance Optimization</span>
+                  </div>
+                  <div className="flex items-center">
+                    <FaCode className="text-xl mr-2 text-primary-500" />
+                    <span>User Experience Design</span>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* App & Full-Stack Development */}
+              <motion.div variants={fadeInUp} className="card">
+                <h3 className="text-xl font-bold text-primary-600 mb-4">
+                  App & Full-Stack
+                </h3>
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="flex items-center">
+                    <SiFlutter className="text-xl mr-2 text-primary-500" />
+                    <span>FlutterFlow</span>
+                  </div>
+                  <div className="flex items-center">
+                    <SiFirebase className="text-xl mr-2 text-primary-500" />
+                    <span>Firebase</span>
+                  </div>
+                  <div className="flex items-center">
+                    <SiSupabase className="text-xl mr-2 text-primary-500" />
+                    <span>Supabase</span>
+                  </div>
+                  <div className="flex items-center">
+                    <SiElectron className="text-xl mr-2 text-primary-500" />
+                    <span>Electron</span>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Experience & Education Combined - More concise */}
+      <section className="section bg-white">
+        <div className="container">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="max-w-5xl mx-auto"
+          >
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+              {/* Experience Column */}
+              <div>
+                <h2 className="text-3xl font-bold mb-6 text-center">
+                  Experience
+                </h2>
+                <div className="space-y-6">
+                  {[
+                    {
+                      title: "Data Entry Specialist and Program Developer",
+                      company: "Virginia Space Grant Consortium",
+                      period: "June 2024 - Present",
+                      description:
+                        "Developed software applications for controlling small drones and providing high school students with foundational programming education.",
+                    },
+                    {
+                      title: "Technology Analyst",
+                      company: "ODU Procurement Services",
+                      period: "September 2023 - Present",
+                      description:
+                        "Evaluated surplus hardware to determine quality and potential for resale. Explored options for refurbishing or recovering hardware to maximize value.",
+                    },
+                    {
+                      title: "VICEROY Cybersecurity Research",
+                      company: "DoD Funded | Old Dominion University",
+                      period: "November 2024 - Present",
+                      description:
+                        "Research on GPS spoofing detection using transformer-based AI models. Applied machine learning techniques to real-world cybersecurity challenges.",
+                    },
+                  ].map((job, index) => (
+                    <motion.div
+                      key={index}
+                      variants={fadeInUp}
+                      className="card text-left p-5"
+                    >
+                      <h3 className="text-lg font-semibold">{job.title}</h3>
+                      <p className="text-primary-600">{job.company}</p>
+                      <p className="text-secondary-500 text-sm mb-2">
+                        {job.period}
+                      </p>
+                      <p className="text-secondary-600 text-sm">
+                        {job.description}
+                      </p>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Education Column */}
+              <div>
+                <h2 className="text-3xl font-bold mb-6 text-center">
+                  Education
+                </h2>
+                <div className="space-y-6">
+                  <motion.div
+                    variants={fadeInUp}
+                    className="card text-left p-5"
+                  >
+                    <h3 className="text-lg font-semibold">
+                      BS in Computer Science
+                    </h3>
+                    <p className="text-primary-600">Old Dominion University</p>
+                    <p className="text-secondary-500 text-sm mb-2">
+                      Expected Graduation: May 2025 | GPA: 3.33/4.0
+                    </p>
+                    <p className="text-secondary-600 text-sm">
+                      Credits Earned: 128 Semester Hours
+                    </p>
+                  </motion.div>
+
+                  <motion.div
+                    variants={fadeInUp}
+                    className="card text-left p-5"
+                  >
+                    <h3 className="text-lg font-semibold">Certifications</h3>
+                    <ul className="text-secondary-600 space-y-1 mt-2 text-sm">
+                      <li>Drone Flying Certificate - Completed July 2024</li>
+                      <li>AWS Certified Cloud Practitioner - April 2025</li>
+                    </ul>
+                  </motion.div>
+
+                  <motion.div
+                    variants={fadeInUp}
+                    className="card text-left p-5"
+                  >
+                    <h3 className="text-lg font-semibold">
+                      Community Involvement
+                    </h3>
+                    <p className="text-primary-600">
+                      Virginia Peninsula Foodbank
+                    </p>
+                    <p className="text-secondary-600 text-sm">
+                      Dedicated volunteer with over 80 hours contributed,
+                      supporting local initiatives to combat food insecurity.
+                    </p>
+                  </motion.div>
                 </div>
               </div>
             </div>
@@ -1089,7 +981,7 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section className="section bg-white">
+      <section className="section bg-secondary-50">
         <div className="container">
           <motion.div
             initial="hidden"
@@ -1102,8 +994,7 @@ export default function Home() {
               Get in Touch
             </h2>
             <p className="text-lg text-secondary-600 mb-8">
-              I'm always interested in hearing about new projects and
-              opportunities. Feel free to reach out!
+              Interested in working together? Let's discuss your project!
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <motion.a
@@ -1122,13 +1013,31 @@ export default function Home() {
               >
                 <FaMobile className="mr-2" /> 757-339-2700
               </motion.a>
+              <motion.div className="flex gap-4 mt-4 w-full justify-center">
+                <a
+                  href="https://github.com/GizaStudios"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-circle btn-secondary"
+                >
+                  <FaGithub />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/devin-morgan-76764231a"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-circle btn-secondary"
+                >
+                  <FaLinkedin />
+                </a>
+              </motion.div>
             </div>
           </motion.div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-secondary-900 text-white py-8">
+      <footer className="bg-secondary-900 text-white py-6">
         <div className="container text-center">
           <p>
             © {new Date().getFullYear()} Devin Emmanuel Morgan. All rights
