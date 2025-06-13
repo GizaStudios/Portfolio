@@ -295,11 +295,10 @@ export default function Home() {
             <h2 className="text-3xl md:text-4xl font-bold mb-6">About Me</h2>
             <p className="text-lg text-secondary-600">
               Software developer specializing in application and game
-              development, currently pursuing a Computer Science degree at Old
-              Dominion University. I combine technical expertise with creativity
-              to build intuitive, impactful digital experiences. My portfolio
-              showcases projects across mobile, game, and full-stack web
-              development.
+              development, with a degree in Computer Science from Old Dominion
+              University. I combine technical expertise with creativity to build
+              intuitive, impactful digital experiences. My portfolio showcases
+              projects across mobile, game, and full-stack web development.
             </p>
           </motion.div>
         </div>
@@ -573,17 +572,17 @@ export default function Home() {
               <div className="card bg-white shadow-xl overflow-hidden">
                 <div className="p-8">
                   <h3 className="text-2xl md:text-3xl font-bold mb-6">
-                    Tello Drone Coding Lab Applications
+                    Drone Coding Labs
                   </h3>
                   <div className="flex flex-col md:flex-row gap-8">
                     <div className="md:w-1/2">
                       <p className="text-secondary-600 text-left mb-6">
                         A series of labs designed to teach programming through
-                        controlling Tello drones. This structured learning
-                        environment enables students to write and execute Python
-                        code to control drones, progressing from basic movements
-                        to advanced swarm coordination across four comprehensive
-                        labs.
+                        controlling various types of drones. This structured
+                        learning environment enables students to write and
+                        execute Python code to control drones, progressing from
+                        basic movements to advanced swarm coordination across
+                        four comprehensive labs.
                       </p>
                       <div className="text-left mb-6">
                         <h4 className="font-semibold text-primary-600 mb-2">
@@ -641,6 +640,14 @@ export default function Home() {
                         ))}
                       </div>
                       <div className="flex flex-wrap gap-3 justify-start mb-6">
+                        <a
+                          href="https://www.dronecodinglabs.com"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="btn bg-primary-600 hover:bg-primary-700 text-white"
+                        >
+                          <FaCode className="mr-2" /> Visit Website
+                        </a>
                         <a
                           href="https://github.com/GizaStudios/DroneCodingLabs"
                           target="_blank"
@@ -940,7 +947,7 @@ export default function Home() {
                     </h3>
                     <p className="text-primary-600">Old Dominion University</p>
                     <p className="text-secondary-500 text-sm mb-2">
-                      Expected Graduation: May 2025 | GPA: 3.33/4.0
+                      Graduated: May 2025 | GPA: 3.39/4.0
                     </p>
                     <p className="text-secondary-600 text-sm">
                       Credits Earned: 128 Semester Hours
@@ -954,7 +961,16 @@ export default function Home() {
                     <h3 className="text-lg font-semibold">Certifications</h3>
                     <ul className="text-secondary-600 space-y-1 mt-2 text-sm">
                       <li>Drone Flying Certificate - Completed July 2024</li>
-                      <li>AWS Certified Cloud Practitioner - April 2025</li>
+                      <li>
+                        <a
+                          href="/AWS Certified Cloud Practitioner certificate.pdf"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-primary-600 hover:text-primary-700 hover:underline"
+                        >
+                          AWS Certified Cloud Practitioner - April 2025
+                        </a>
+                      </li>
                     </ul>
                   </motion.div>
 
