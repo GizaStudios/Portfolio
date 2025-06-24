@@ -62,6 +62,90 @@
   .card {
     @apply bg-white rounded-xl shadow-lg p-6 transition-all duration-200 hover:shadow-xl;
   }
+
+  /* Custom animations */
+  .animate-spin-slow {
+    animation: spin 8s linear infinite;
+  }
+
+  .animate-gradient-shift {
+    background-size: 300% 300%;
+    animation: gradient-shift 4s ease infinite;
+  }
+
+  .animate-gradient-spin {
+    background: conic-gradient(
+      from 0deg,
+      #3b82f6,
+      #22d3ee,
+      #a855f7,
+      #ec4899,
+      #3b82f6
+    );
+    animation: gradient-rotate 3s linear infinite;
+  }
+
+  .animate-gradient-glow {
+    background: conic-gradient(
+      from 0deg,
+      transparent 15%,
+      #2563eb 35%,
+      #06b6d4 45%,
+      #9333ea 55%,
+      #db2777 65%,
+      transparent 85%
+    );
+    animation: gradient-glow-rotate 4s ease-in-out infinite;
+    filter: brightness(1.5) saturate(1.5)
+      drop-shadow(0 0 8px rgba(59, 130, 246, 0.6));
+  }
+
+  .bg-size-300 {
+    background-size: 300% 300%;
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes gradient-shift {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    25% {
+      background-position: 100% 50%;
+    }
+    50% {
+      background-position: 100% 100%;
+    }
+    75% {
+      background-position: 0% 100%;
+    }
+  }
+
+  @keyframes gradient-rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes gradient-glow-rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
 }
 
 @theme inline {

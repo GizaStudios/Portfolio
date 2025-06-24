@@ -293,13 +293,66 @@ export default function Home() {
             className="max-w-3xl mx-auto text-center"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-6">About Me</h2>
-            <p className="text-lg text-secondary-600">
+            <p className="text-lg text-secondary-600 mb-8">
               Software developer specializing in application and game
               development, with a degree in Computer Science from Old Dominion
               University. I combine technical expertise with creativity to build
               intuitive, impactful digital experiences. My portfolio showcases
               projects across mobile, game, and full-stack web development.
             </p>
+
+            {/* Giza Studios Company Button */}
+            <div className="flex justify-center">
+              <a
+                href="https://www.gizastudios.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-6 px-6 py-6 bg-white hover:bg-gray-50 text-secondary-900 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-200"
+              >
+                {/* Logo with animated glowing gradient border */}
+                <div className="relative">
+                  {/* Compact glowing gradient border layers */}
+                  <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 via-cyan-400 via-purple-500 via-pink-500 to-blue-500 rounded-full opacity-100 blur-sm animate-gradient-glow transition-opacity duration-300 shadow-2xl"></div>
+                  <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 via-cyan-400 via-purple-500 via-pink-500 to-blue-500 rounded-full opacity-90 group-hover:opacity-100 animate-gradient-spin transition-opacity duration-300"></div>
+                  {/* Logo container */}
+                  <div className="relative bg-white rounded-full p-2 shadow-sm">
+                    <img
+                      src="/GizaStudiosLogoCircle.png"
+                      alt="Giza Studios"
+                      className="w-20 h-20 rounded-full object-cover"
+                    />
+                  </div>
+                </div>
+
+                {/* Text content */}
+                <div className="text-left">
+                  <div className="text-lg font-semibold text-secondary-900 group-hover:text-primary-600 transition-colors duration-300">
+                    Visit Giza Studios
+                  </div>
+                  <div className="text-sm text-secondary-500 group-hover:text-secondary-600 transition-colors duration-300">
+                    Our Company Website
+                  </div>
+                </div>
+
+                {/* Arrow icon */}
+                <div className="text-primary-600 group-hover:text-primary-700 group-hover:translate-x-1 transform transition-all duration-300">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                    />
+                  </svg>
+                </div>
+              </a>
+            </div>
           </motion.div>
         </div>
       </section>
