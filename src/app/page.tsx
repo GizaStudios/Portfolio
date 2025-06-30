@@ -234,7 +234,7 @@ export default function Home() {
                 <FaEnvelope className="mr-2" /> Contact Me
               </a>
               <a
-                href="/DevinMorganResume.pdf"
+                href="/Devin_Morgan_Resume.pdf"
                 className="btn btn-secondary hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
                 target="_blank"
                 rel="noopener noreferrer"
