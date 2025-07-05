@@ -23,14 +23,9 @@ import {
   FaPuzzlePiece,
   FaBolt,
   FaLayerGroup,
+  FaReact,
 } from "react-icons/fa";
-import {
-  SiElectron,
-  SiFlutter,
-  SiFirebase,
-  SiSupabase,
-  SiOpenai,
-} from "react-icons/si";
+import { SiElectron, SiFirebase, SiSupabase, SiOpenai } from "react-icons/si";
 import { TbBrandCSharp } from "react-icons/tb";
 import { CheckIcon } from "@heroicons/react/24/outline";
 
@@ -420,7 +415,7 @@ export default function Home() {
                       </div>
                       <div className="flex flex-wrap gap-2 mb-6 justify-start">
                         {[
-                          "Flutter",
+                          "React Native",
                           "Supabase",
                           "Firebase",
                           "Multiple AI APIs",
@@ -905,8 +900,8 @@ export default function Home() {
                 </h3>
                 <div className="grid grid-cols-2 gap-3">
                   <div className="flex items-center">
-                    <SiFlutter className="text-xl mr-2 text-primary-500" />
-                    <span>FlutterFlow</span>
+                    <FaReact className="text-xl mr-2 text-primary-500" />
+                    <span>Expo</span>
                   </div>
                   <div className="flex items-center">
                     <SiFirebase className="text-xl mr-2 text-primary-500" />
