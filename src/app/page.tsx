@@ -414,19 +414,16 @@ export default function Home() {
                         </ul>
                       </div>
                       <div className="flex flex-wrap gap-2 mb-6 justify-start">
-                        {[
-                          "React Native",
-                          "Supabase",
-                          "Firebase",
-                          "Multiple AI APIs",
-                        ].map((tech) => (
-                          <span
-                            key={tech}
-                            className="px-3 py-1 bg-white bg-opacity-20 text-white rounded-full text-sm"
-                          >
-                            {tech}
-                          </span>
-                        ))}
+                        {["Supabase", "Firebase", "Multiple AI APIs"].map(
+                          (tech) => (
+                            <span
+                              key={tech}
+                              className="px-3 py-1 bg-white bg-opacity-20 text-white rounded-full text-sm"
+                            >
+                              {tech}
+                            </span>
+                          )
+                        )}
                       </div>
                       <div className="flex flex-wrap gap-3 justify-start">
                         <a
