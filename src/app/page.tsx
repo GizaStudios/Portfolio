@@ -307,8 +307,8 @@ export default function Home() {
                 {/* Logo with animated glowing gradient border */}
                 <div className="relative">
                   {/* Compact glowing gradient border layers */}
-                  <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 via-cyan-400 via-purple-500 via-pink-500 to-blue-500 rounded-full opacity-100 blur-sm animate-gradient-glow transition-opacity duration-300 shadow-2xl"></div>
-                  <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 via-cyan-400 via-purple-500 via-pink-500 to-blue-500 rounded-full opacity-90 group-hover:opacity-100 animate-gradient-spin transition-opacity duration-300"></div>
+                  <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-500 rounded-full opacity-100 blur-sm animate-gradient-glow transition-opacity duration-300 shadow-2xl"></div>
+                  <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-500 rounded-full opacity-90 group-hover:opacity-100 animate-gradient-spin transition-opacity duration-300"></div>
                   {/* Logo container */}
                   <div className="relative bg-white rounded-full p-2 shadow-sm">
                     <img
